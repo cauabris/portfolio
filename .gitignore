@@ -1,0 +1,9 @@
+# Exclude transfer metadata, working notes, backups, and the alternate template build.
+.openbot-transfer.json
+AGENTS.md
+DESIGN.md
+conteudo-site-pendencias.md
+index.before-template-restore.html
+index.previous.html
+index.gsap.html
+template-original.html
