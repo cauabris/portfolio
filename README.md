@@ -7,7 +7,8 @@ Site pessoal de portfólio, publicado como página estática pelo GitHub Pages. 
 - `index.html` — página completa, com HTML, CSS e JavaScript inline. É o ponto de entrada do GitHub Pages.
 - `CREDITS.md` — créditos das imagens e recursos usados no template.
 - `LICENSE` — licença MIT do template original.
-- `.nojekyll` — instrui o GitHub Pages a servir o projeto como arquivos estáticos, sem processamento Jekyll.\n- `CNAME` — domínio personalizado preparado: `cauabris.com.br`. O domínio ainda precisa ser configurado nas definições do Pages e no DNS do Registro.br.
+- `.nojekyll` — instrui o GitHub Pages a servir o projeto como arquivos estáticos, sem processamento Jekyll.
+- `CNAME` — domínio personalizado preparado: `cauabris.com.br`. O domínio ainda precisa ser configurado nas definições do Pages e no DNS do Registro.br.
 - `README.md` — este guia.
 
 Arquivos de trabalho, versões anteriores, documentos de conteúdo e metadados locais não fazem parte da publicação.
