@@ -2,6 +2,12 @@
 
 Third-party photos, fonts and libraries used by `index.html`.
 
+## Owner-provided image
+
+| File | Supplied by | Used in |
+|---|---|---|
+| assets/caua-bris.jpg | Cauã Bris | hero, footer |
+
 ## Photos (Unsplash License)
 
 Loaded from images.unsplash.com. Free to use under the [Unsplash License](https://unsplash.com/license); not covered by this template's MIT license.
