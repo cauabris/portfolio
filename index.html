@@ -373,6 +373,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
   #studio .shot:nth-child(3) { left: 8%; top: 47%; width: 20%; }
   #studio .shot:nth-child(4) { left: 59%; top: 0; width: 41%; }
   #studio .shot:nth-child(5) { left: 31%; top: 53.3%; width: 36%; }
+  #studio .shot:nth-child(6) { left: 70%; top: 53%; width: 25%; }
   #studio .studio__roles { position: absolute; left: 71%; top: 55%; width: 29%; padding-top: 0; }
 }
 }
@@ -385,6 +386,7 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #journal .journal__frame { position: relative; overflow: hidden; border-radius: var(--radius-1); background: var(--color-4); aspect-ratio: 16 / 10; }
 #journal .journal__shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 #journal .journal__shot:first-child { z-index: 1; }
+@media (max-width: 899px) { #journal .journal__shot--award, #journal .journal__shot--hubble, #journal .journal__shot--group-hub, #journal .journal__shot--vivaworks { object-fit: contain; background: var(--color-4); } }
 #journal .journal__list { display: grid; gap: clamp(36px, 8vh, 72px); }
 #journal .story { display: grid; gap: 12px; max-width: 36rem; padding-top: 20px; border-top: 1px solid color-mix(in srgb, var(--color-1) 16%, transparent); }
 #journal .story__meta { color: var(--color-6); }
@@ -424,24 +426,19 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #contact .contact__lead { max-width: 30rem; }
 #contact .contact__mail { font-family: var(--font-1); font-size: clamp(28px, 3.4vw, 50px); font-weight: 700; line-height: 1; letter-spacing: -0.035em; text-decoration: none; }
 #contact .contact__mail span { background: linear-gradient(currentColor, currentColor) 0 100% / 100% 2px no-repeat; padding-bottom: 4px; }
+#contact .contact__socials { display: flex; flex-wrap: wrap; gap: 20px; }
+#contact .contact__social { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
+#contact .contact__social svg { width: 22px; height: 22px; fill: currentColor; }
 #contact .contact__places { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
 #contact .contact__places dt { margin-bottom: 6px; }
 #contact .contact__places dd a { text-decoration: none; }
-#contact .contact__form { display: grid; gap: 18px; padding: clamp(22px, 3vw, 40px); }
-#contact .contact__form label { display: grid; gap: 2px; color: var(--color-6); }
-#contact .contact__form .m-field { color: var(--color-1); }
-#contact .contact__form :focus-visible { outline-color: var(--color-3); }
-#contact .contact__pair { display: grid; gap: 18px; }
-#contact .contact__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding-top: 6px; }
-#contact .contact__status { color: var(--color-1); }
-@media (min-width: 640px) { #contact .contact__pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1000px) { #contact .contact__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 6vw; } }
+@media (min-width: 1000px) { #contact .contact__grid { grid-template-columns: minmax(0, 1fr); gap: 6vw; } }
 }
 </style>
 <style data-8b-part="section:footer">
 @layer sections {
 #footer { --ap: min(30vw, 44svh); position: relative; padding: clamp(80px, 12vh, 140px) var(--space-1) 28px; background: var(--color-1); color: var(--color-2); overflow: clip; }
-#footer .footer__bye { position: relative; padding-top: var(--ap); white-space: nowrap; font-size: min(36vw, 40svh); }
+#footer .footer__bye { position: relative; padding-top: min(22vw, 30svh); white-space: nowrap; font-size: min(36vw, 40svh); }
 #footer .footer__word { display: inline-block; }
 #footer .footer__period { position: relative; display: inline-block; width: 0.19em; height: 0.19em; margin-left: 0.035em; vertical-align: baseline; }
 #footer .footer__aperture { position: absolute; left: 0; bottom: 0; width: var(--ap); height: var(--ap); overflow: hidden; border-radius: var(--radius-2); background: var(--color-3); transform-origin: 0 100%; }
@@ -449,16 +446,15 @@ textarea.m-field { min-height: 112px; resize: vertical; }
 #footer .footer__tint { position: absolute; inset: 0; background: var(--color-3); opacity: 0; }
 #footer .footer__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 24px; margin-top: clamp(48px, 9vh, 96px); padding-top: 32px; border-top: 1px solid color-mix(in srgb, var(--color-2) 16%, transparent); }
 #footer .footer__col { display: grid; align-content: start; gap: 6px; }
+#footer .footer__social { display: inline-flex; align-items: center; gap: 10px; }
+#footer .footer__social svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
+#footer .footer__contact a { text-decoration: none; }
+#footer .footer__contact .m-text-3 { font-size: clamp(28px, 4vw, 72px); line-height: 1; }
 #footer .footer__label { margin-bottom: 8px; color: var(--color-5); }
-#footer .footer__news { grid-column: 1 / -1; display: grid; gap: 14px; }
-#footer .footer__field { display: flex; align-items: center; gap: 12px; }
-#footer .footer__field .m-field { flex: 1; }
-#footer .footer__note { color: var(--color-5); }
 #footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 56px; color: var(--color-5); }
 @media (min-width: 900px) {
   #footer .footer__bye { font-size: min(24vw, 40svh); }
-  #footer .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 2fr); }
-  #footer .footer__news { grid-column: auto; }
+  #footer .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: no-preference) {
   #footer .footer__img { animation: footer-turn 46s linear infinite; }
@@ -754,31 +750,31 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
     <div class="work__window">
       <ul class="work__track" data-8b-items=":scope > .case" data-8b-fixed="6">
         <li class="case">
-          <div class="case__media"><img class="case__img" src="assets/hubble-recrutamento.png" width="1600" height="1000" alt="A rider on an electric bike on a seaside promenade under a wide blue sky" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/hubble-recrutamento.webp" width="2200" height="1556" alt="A recruitment platform displayed on a laptop in a warmly lit workspace" loading="lazy"></div>
           <span class="m-badge case__tag">SaaS · B2B · Product Management</span>
           <div class="case__text"><h3 class="m-text-4 case__name">Hubble</h3><p class="m-text-5 case__line">An AI-first recruitment platform that connects talent and companies, where AI agents help recruiters identify and select candidates.</p></div>
         </li><li class="case">
-          <div class="case__media"><img class="case__img" src="assets/hubble-people.png" width="1600" height="1000" alt="A rider on an electric bike on a seaside promenade under a wide blue sky" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/hubble-people.webp" width="2200" height="1327" alt="An employee onboarding platform displayed on a laptop" loading="lazy"></div>
           <span class="m-badge case__tag">SaaS · B2B · Product Design</span>
           <div class="case__text"><h3 class="m-text-4 case__name">Hubble People</h3><p class="m-text-5 case__line">An HR platform covering admission, vacation management, performance evaluation and internal communication.</p></div>
         </li>
         <li class="case">
-          <div class="case__media"><img class="case__img" src="assets/vivaresult.png" width="1600" height="1000" alt="A smiling woman in an orange sweater against a lilac wall" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/vivaresult.webp" width="2200" height="1482" alt="A variable compensation dashboard displayed on a laptop in a sunny workspace" loading="lazy"></div>
           <span class="m-badge case__tag">SaaS · B2B · Product Design</span>
           <div class="case__text"><h3 class="m-text-4 case__name">VivaResult</h3><p class="m-text-5 case__line">A variable compensation platform to manage goals, commissions and performance with more transparency.</p></div>
         </li>
         <li class="case">
-          <div class="case__media"><img class="case__img" src="assets/vivaworks-site.png" width="1600" height="1000" alt="A baker in front of warmly lit wooden shelves of bread" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/vivaworks-site.webp" width="2200" height="1239" alt="The Vivaworks website shown on a laptop in a dark green workspace" loading="lazy"></div>
           <span class="m-badge case__tag">Website · B2B · Redesign</span>
           <div class="case__text"><h3 class="m-text-4 case__name">Vivaworks</h3><p class="m-text-5 case__line">A redesign of a technology company’s website, covering information architecture, navigation and conversion.</p></div>
         </li>
         <li class="case">
-          <div class="case__media"><img class="case__img" src="assets/vivaintra.png" width="1600" height="1000" alt="Visitors walking among white statues in a gallery with blue walls" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/vivaintra.webp" width="2200" height="1564" alt="The Vivaintra employee portal displayed on a laptop in a green workspace" loading="lazy"></div>
           <span class="m-badge case__tag">Intranet · B2B · Redesign</span>
           <div class="case__text"><h3 class="m-text-4 case__name">Vivaintra</h3><p class="m-text-5 case__line">An enterprise intranet and corporate social platform that brings communication and collaboration together.</p></div>
         </li>
         <li class="case">
-          <div class="case__media"><img class="case__img" src="assets/vestibum.png" width="1600" height="1000" alt="Black wireless headphones lit in red and blue" loading="lazy"></div>
+          <div class="case__media"><img class="case__img" src="assets/vestibum.webp" width="2200" height="1365" alt="The Vestibum study app displayed on two phones on a desk" loading="lazy"></div>
           <span class="m-badge case__tag">EdTech · B2C · Case</span>
           <div class="case__text"><h3 class="m-text-4 case__name">Vestibum</h3><p class="m-text-5 case__line">A gamified study experience for students preparing for university entrance exams.</p></div>
         </li>
@@ -797,27 +793,27 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
     <div class="again__swing">
       <ul class="again__wheel" data-8b-items=":scope > .partner">
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-360.png" width="900" height="1125" alt="A sunset sky and a wing seen through an airplane window" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-360.webp" width="1086" height="1448" alt="A sunset sky and a wing seen through an airplane window" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">R$360K</h3><p class="m-text partner__line">Annual cost eliminated by moving Data2 to AWS.</p></div></div>
         </li>
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-4-plus.png" width="900" height="1125" alt="A barista pouring milk into a latte" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-4-plus.webp" width="1086" height="1448" alt="A barista pouring milk into a latte" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">4+</h3><p class="m-text partner__line">AI agents shipped at Hubble, an AI-first platform.</p></div></div>
         </li>
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-620.png" width="900" height="1125" alt="A hiker with a backpack standing on a rock above green mountains" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-620.webp" width="1086" height="1448" alt="A hiker with a backpack standing on a rock above green mountains" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">620</h3><p class="m-text partner__line">Backlog items delivered in 13 sprints at Hubble</p></div></div>
         </li>
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-64.png" width="900" height="1125" alt="Rows of arcade machines glowing with neon light" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-64.webp" width="1086" height="1448" alt="Rows of arcade machines glowing with neon light" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">64%</h3><p class="m-text partner__line">Fewer access support requests at Vivaworks.</p></div></div>
         </li>
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-92.png" width="900" height="1125" alt="A cyclist riding past a red-brick city hall under a blue sky" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-92.webp" width="1086" height="1448" alt="A cyclist riding past a red-brick city hall under a blue sky" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">92%</h3><p class="m-text partner__line">Of design proposals accepted at Vivaworks.</p></div></div>
         </li>
         <li class="partner">
-          <div class="partner__card"><img class="partner__img" src="assets/impact-best-app.png" width="900" height="1125" alt="A nurse comforting a young child on a sofa" loading="lazy">
+          <div class="partner__card"><img class="partner__img" src="assets/impact-best-app.webp" width="1086" height="1448" alt="A nurse comforting a young child on a sofa" loading="lazy">
           <div class="partner__text"><h3 class="m-text-4 partner__name">Best Brazilian Mobile App</h3><p class="m-text partner__line">LATAM Congress on Communication Studies.</p></div></div>
         </li>
       </ul>
@@ -838,7 +834,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <p class="m-text-5 service__line">Shaping and shipping 4+ AI agents, including recruitment, selection and insights, with Engineering and Data/AI.</p>
         <ul class="service__tags" data-8b-items=":scope > li"><li class="m-badge">AI agents</li><li class="m-badge">Recruitment</li><li class="m-badge">Candidate insights</li><li class="m-badge">CV optimization</li></ul>
       </div>
-      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="https://images.unsplash.com/photo-1617825295690-28ae56c56135?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8cGFja2FnaW5nJTIwZGVzaWduJTIwbW9ja3VwJTIwYm94ZXN8ZW58MXwwfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=60" width="1200" height="900" alt="Pink and green printed boxes stacked together" loading="lazy"></div>
+      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="assets/pm-ai-agents.webp" width="1672" height="941" alt="Abstract amber AI core illustration" loading="lazy"></div>
       <span class="service__shade" aria-hidden="true"></span>
     </li>
     <li class="service m-surface">
@@ -847,7 +843,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <p class="m-text-5 service__line">Led product coordination of the migration from Data2, a low-code platform, to AWS, moving four core modules and eliminating R$360K in annual recurring costs.</p>
         <ul class="service__tags" data-8b-items=":scope > li"><li class="m-badge">Product strategy</li><li class="m-badge">Product discovery</li><li class="m-badge">Engineering</li><li class="m-badge">AWS migration</li></ul>
       </div>
-      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="https://images.unsplash.com/photo-1601972599720-36938d4ecd31?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8aGFuZCUyMGhvbGRpbmclMjBzbWFydHBob25lJTIwYXBwJTIwc2NyZWVufGVufDF8MXx8fDE3OTEyMDk3NzJ8MA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=60" width="1200" height="900" alt="A hand holding a phone that shows a food ordering app" loading="lazy"></div>
+      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="assets/pm-platform-migration.webp" width="1670" height="941" alt="Purple cloud data migration illustration" loading="lazy"></div>
       <span class="service__shade" aria-hidden="true"></span>
     </li>
     <li class="service m-surface">
@@ -856,7 +852,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <p class="m-text-5 service__line">Running discovery for candidate journeys, behavioral assessments, interview scorecards and offer-letter flows, with usability interviews and hypothesis testing.</p>
         <ul class="service__tags" data-8b-items=":scope > li"><li class="m-badge">Discovery</li><li class="m-badge">Interviews</li><li class="m-badge">Behavioral assessments</li><li class="m-badge">Offer-letter flows</li></ul>
       </div>
-      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="https://images.unsplash.com/photo-1720175646447-e37d994007fc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8YmlsbGJvYXJkJTIwY2l0eSUyMHN0cmVldCUyMHBvc3RlcnxlbnwxfDF8fHwxNzkxMjA5NzUxfDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=60" width="1200" height="900" alt="A large advertisement on the side of a city building" loading="lazy"></div>
+      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="assets/pm-discovery.webp" width="1672" height="941" alt="Futuristic discovery and research illustration" loading="lazy"></div>
       <span class="service__shade" aria-hidden="true"></span>
     </li>
     <li class="service m-surface">
@@ -865,7 +861,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <p class="m-text-5 service__line">Led go-to-market and redesigned user flows that turned an internal product into Hubble, an AI-first platform.</p>
         <ul class="service__tags" data-8b-items=":scope > li"><li class="m-badge">Recognition</li><li class="m-badge">Candidate journeys</li><li class="m-badge">Interview scorecards</li><li class="m-badge">Prototyping</li></ul>
       </div>
-      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8d29ya3Nob3AlMjBzdGlja3klMjBub3RlcyUyMHdhbGx8ZW58MXwwfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=60" width="1200" height="900" alt="A wall of printed sticky notes from a research workshop" loading="lazy"></div>
+      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="assets/pm-go-to-market.webp" width="1672" height="941" alt="Blue neon product launch illustration" loading="lazy"></div>
       <span class="service__shade" aria-hidden="true"></span>
     </li>
     <li class="service m-surface">
@@ -874,7 +870,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <p class="m-text-5 service__line">Connecting design, engineering and business stakeholders around priorities, roadmap planning, backlog management and continuous improvement.</p>
         <ul class="service__tags" data-8b-items=":scope > li"><li class="m-badge">Product roadmap</li><li class="m-badge">Prototyping</li><li class="m-badge">AI assistants</li><li class="m-badge">Cross-functional delivery</li></ul>
       </div>
-      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="https://images.unsplash.com/photo-1769675353367-e581059c7c43?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8YWJzdHJhY3QlMjBsaWdodCUyMHRyYWlscyUyMGRhcmslMjB2aW9sZXR8ZW58MXwwfHx8MTc5MTIwOTc3M3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=720&amp;h=540&amp;q=60" width="1200" height="900" alt="Violet light trails curving across a dark background" loading="lazy"></div>
+      <div class="service__media" data-8b-motion="iris" data-8b-enter="86%"><img src="assets/pm-product-strategy.webp" width="1671" height="941" alt="Purple digital connections and product strategy illustration" loading="lazy"></div>
       <span class="service__shade" aria-hidden="true"></span>
     </li>
   </ol>
@@ -911,14 +907,13 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
     <p class="m-text-5 studio__lead" data-8b-motion="ink" data-8b-split="words">I&#39;m Cau&#227; Bris, a Brazilian Product Designer and Product Manager working at the intersection of design, strategy and technology. My journey started in communication and multidisciplinary design, which shaped how I approach problems today. Over time, I moved deeper into digital products, developing a broader perspective on how user needs, business goals and technology come together. I enjoy working on complex challenges, understanding different perspectives and turning ambiguity into clear product directions. My work goes beyond interfaces: I&#39;m interested in why things should exist, what problems they solve and how we can make them better. Throughout my career, I&#39;ve collaborated with multidisciplinary teams, helping shape products from discovery and research to prioritization, design and delivery. Today I work as a Product Manager at Hubble, leading discovery, prioritization and delivery of an AI-powered recruitment platform while bringing a design perspective to product decisions. I&#39;m particularly interested in the intersection of human behavior, technology and business — and in how thoughtful design can make that relationship more meaningful.</p>
   </div>
   <div class="studio__collage">
-    <figure class="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647559705-d2ad3322020e?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8MXx8Y3JlYXRpdmUlMjB0ZWFtJTIwbWVldGluZyUyMHN0dWRpb3xlbnwxfDB8fHwxNzkxMjA5NzQ5fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=450&amp;h=300&amp;q=60" width="1400" height="933" alt="A team working together around a desk in a colourful studio" loading="lazy"></figure>
-    <figure class="shot shot--tall"><img src="https://images.unsplash.com/photo-1643373977342-73cfc7cc0c5e?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8cGVvcGxlJTIwbGF1Z2hpbmclMjBvZmZpY2V8ZW58MXwxfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=210&amp;h=280&amp;q=60" width="900" height="1200" alt="Two colleagues laughing together on a blue chair" loading="lazy"></figure>
-    <figure class="shot shot--tall"><img src="https://images.unsplash.com/photo-1745434159123-4908d0b9df94?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NHx8cGVvcGxlJTIwbGF1Z2hpbmclMjBvZmZpY2V8ZW58MXwxfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=200&amp;h=267&amp;q=60" width="900" height="1200" alt="A smiling designer standing in front of a warm wall" loading="lazy"></figure>
-    <figure class="shot shot--wide"><img src="https://images.unsplash.com/photo-1787647560262-ebfcf6c5f979?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8M3x8Y3JlYXRpdmUlMjB0ZWFtJTIwbWVldGluZyUyMHN0dWRpb3xlbnwxfDB8fHwxNzkxMjA5NzQ5fDA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=460&amp;h=307&amp;q=60" width="1400" height="933" alt="Four people collaborating around a table seen from above" loading="lazy"></figure>
-    <figure class="shot shot--wide"><img src="https://images.unsplash.com/photo-1623652653308-d49d335c92eb?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8d29ya3Nob3AlMjBzdGlja3klMjBub3RlcyUyMHdhbGx8ZW58MXwwfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=440&amp;h=293&amp;q=60" width="1400" height="933" alt="A team discussing ideas in front of a wall of notes" loading="lazy"></figure>
-
-  </div>
-</section>
+    <figure class="shot shot--wide"><img src="assets/about-class-team.jpg" width="900" height="900" alt="Cauã and classmates during a UX class" loading="lazy"></figure>
+    <figure class="shot shot--tall"><img src="assets/vestibum-award-trophy.jpg" width="800" height="1200" alt="Vestibum award presented at Intercom PUC Minas" loading="lazy"></figure>
+    <figure class="shot shot--tall"><img src="assets/about-ux-talk.webp" width="1650" height="2200" alt="Cauã presenting a UX research project" loading="lazy"></figure>
+    <figure class="shot shot--wide"><img src="assets/about-vivaworks-team.webp" width="2200" height="1651" alt="Cauã with the Vivaworks team" loading="lazy"></figure>
+    <figure class="shot shot--wide"><img src="assets/about-vestibum-talk.webp" width="1254" height="1254" alt="Cauã presenting the Vestibum educational app" loading="lazy"></figure>
+    <figure class="shot shot--wide"><img src="assets/about-vivaworks-selfie.webp" width="2200" height="1650" alt="Cauã at the Vivaworks office" loading="lazy"></figure>
+  </div></section>
 
 <!-- journal: news and articles: four stories beside a sticky photo frame (animation: scene:journal) -->
 <section id="journal" data-8b-section="journal" aria-labelledby="journal-title">
@@ -927,10 +922,10 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
   </div>
   <div class="journal__body">
     <div class="journal__frame" data-8b-items=":scope > img" data-8b-fixed="4">
-      <img class="journal__shot" src="https://images.unsplash.com/photo-1769755409781-9e8924c57362?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8Y29uZmVyZW5jZSUyMHN0YWdlJTIwYXVkaWVuY2UlMjBsaWdodHN8ZW58MXwwfHx8MTc5MTIwOTc3M3ww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;h=713&amp;q=60" width="1000" height="1250" alt="A speaker on a stage addressing a large audience in a dim hall" loading="lazy">
-      <img class="journal__shot" src="https://images.unsplash.com/photo-1783094269325-4ba186e8e01b?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Nnx8c2VydmljZSUyMGRlc2slMjBjdXN0b21lciUyMHNtaWxpbmd8ZW58MXwwfHx8MTc5MTIwOTc3NXww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;h=713&amp;q=60" width="1000" height="1250" alt="A smiling woman working on a laptop at a bright desk" loading="lazy">
-      <img class="journal__shot" src="https://images.unsplash.com/photo-1581080247486-57989c1f14ab?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8NXx8cHJpbnRlZCUyMG1hZ2F6aW5lJTIwcGFnZXMlMjB0eXBvZ3JhcGh5fGVufDF8MHx8fDE3OTEyMDk3NzR8MA&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;h=713&amp;q=60" width="1000" height="1250" alt="Bold yellow and blue type printed on a box" loading="lazy">
-      <img class="journal__shot" src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixid=M3w0Mzc5fDB8MXxzZWFyY2h8Mnx8d29ya3Nob3AlMjBzdGlja3klMjBub3RlcyUyMHdhbGx8ZW58MXwwfHx8MTc5MTIwOTc1MHww&amp;ixlib=rb-4.1.0&amp;auto=format&amp;fit=crop&amp;w=570&amp;h=713&amp;q=60" width="1000" height="1250" alt="Handwritten sticky notes pinned to a corkboard after a research session" loading="lazy">
+      <img class="journal__shot journal__shot--hubble" src="assets/hubble-product-manager-event.webp" width="1086" height="1448" alt="Cauã Bris at the Gente, Gestão &amp; Futuro 2026 event" loading="lazy">
+      <img class="journal__shot journal__shot--group-hub" src="assets/grupo-hub-experience.webp" width="1086" height="1448" alt="Cauã at the Hub Experience event" loading="lazy">
+      <img class="journal__shot journal__shot--vivaworks" src="assets/vivaworks-product-designer-talk.jpeg" width="960" height="1280" alt="Cauã speaking about automation at Vivaworks" loading="lazy">
+      <img class="journal__shot journal__shot--award" src="assets/vestibum-award.jpg" width="800" height="1400" alt="Cauã receiving the Vestibum award at Intercom PUC Minas 2023" loading="lazy">
     </div>
     <ol class="journal__list" data-8b-items=":scope > .story" data-8b-fixed="4">
       <li class="story"><p class="m-text-6 story__meta"><span>Experience</span> · <time datetime="2025-06-01">June 2025 — Present</time> · Product Manager</p><h3 class="m-text-7">Hubble &#183; Product Manager</h3><p class="m-text story__text">Leading product discovery, prioritization and delivery for an AI-powered recruitment SaaS platform.</p></li>
@@ -958,32 +953,16 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
   <div class="contact__grid">
     <div class="contact__info">
       <p class="m-text-5 contact__lead">I&#39;m always interested in connecting with people who are building meaningful products, exploring new ideas or challenging the way things work.</p>
-      <a data-8b-placeholder="email" class="contact__mail" href="https://linkedin.com/in/cauabris"><span>linkedin.com/in/cauabris</span></a>
-      <dl class="contact__places">
-        <div><dt class="m-text-7">LinkedIn</dt><dd class="m-text"><br></dd><dd class="m-text"><a data-8b-placeholder="phone" href="https://linkedin.com/in/cauabris"></a></dd></div>
-        <div><dt class="m-text-7">LinkedIn</dt><dd class="m-text"><br></dd><dd class="m-text"><a data-8b-placeholder="phone" href="https://linkedin.com/in/cauabris"></a></dd></div>
-      </dl>
+      <div class="contact__socials" aria-label="Social profiles">
+        <a class="contact__social" href="https://linkedin.com/in/cauabris" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2ZM8 19H5V9h3ZM6.5 7.65a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5ZM19 19h-3v-5.2c0-1.25-.02-2.86-1.74-2.86-1.74 0-2.01 1.36-2.01 2.77V19h-3V9h2.88v1.37h.04a3.16 3.16 0 0 1 2.84-1.56C18.05 8.81 19 10.73 19 13.22Z"/></svg><span>LinkedIn</span></a>
+        <a class="contact__social" href="https://x.com/cauabris" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93Zm-1.29 19.49h2.04L6.48 3.24H4.29Z"/></svg><span>X</span></a>
+      </div>
     </div>
-    <form data-8b-placeholder="form" class="contact__form m-surface" novalidate>
-      <div class="contact__pair">
-        <label class="m-text-6">Your name<input class="m-field" name="name" type="text" autocomplete="name" required></label>
-        <label class="m-text-6">Email<input class="m-field" name="email" type="email" autocomplete="email" required></label>
-      </div>
-      <div class="contact__pair">
-        <label class="m-text-6">Company<input class="m-field" name="company" type="text" autocomplete="organization"></label>
-        <label class="m-text-6">Area of interest?<select class="m-field" name="topic"><option>Product design</option><option>Product management</option><option>AI-powered products</option><option>Other</option></select></label>
-      </div>
-      <label class="m-text-6">A few words about my message<textarea class="m-field" name="message" rows="3" required></textarea></label>
-      <div class="contact__actions">
-        <button class="m-btn" type="submit"><span class="m-btn__label">Send message</span></button>
-        <p class="m-text contact__status" role="status" aria-live="polite" data-success="This form is not connected yet. Please contact me on LinkedIn." data-error="Please complete the fields, then contact me on LinkedIn; this form is not connected."></p>
-      </div>
-    </form>
   </div>
 </section>
 </main>
 
-<!-- footer: closing greeting "Bye" with the round photo full stop, link columns, newsletter, copyright and the Design: 8B credit (animation: scene:footer) -->
+<!-- footer: closing greeting "Bye" with the round photo full stop, Explore, social links and copyright (animation: scene:footer) -->
 <footer id="footer" data-8b-section="footer">
   <p class="m-text-2 footer__bye" style="--len:3"><span class="footer__word">Bye</span><span class="footer__period" aria-hidden="true"><span class="footer__aperture"><img class="footer__img" src="assets/caua-bris.jpg" width="1128" height="1128" alt=""><span class="footer__tint"></span></span></span></p>
   <div class="footer__grid">
@@ -997,27 +976,13 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
       <a class="m-link-2" href="#contact">Contact</a>
     </nav>
     <div class="footer__col">
-      <p class="m-text-6 footer__label">Talk</p>
-      <a data-8b-placeholder="email" class="m-link-2" href="https://linkedin.com/in/cauabris">linkedin.com/in/cauabris</a>
-      <a data-8b-placeholder="email" class="m-link-2" href="https://linkedin.com/in/cauabris">linkedin.com/in/cauabris</a>
-      <a data-8b-placeholder="phone" class="m-link-2" href="https://linkedin.com/in/cauabris"></a>
-    </div>
-    <div class="footer__col">
       <p class="m-text-6 footer__label">Follow</p>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://linkedin.com/in/cauabris">LinkedIn</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://www.linkedin.com/">LinkedIn</a>
-      <a data-8b-placeholder="social" class="m-link-2" href="https://linkedin.com/in/cauabris">LinkedIn</a>
+      <a class="m-link-2 footer__social" href="https://linkedin.com/in/cauabris" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55A1.55 1.55 0 0 0 2 3.55v16.9A1.55 1.55 0 0 0 3.55 22h16.9A1.55 1.55 0 0 0 22 20.45V3.55A1.55 1.55 0 0 0 20.45 2ZM8 19H5V9h3ZM6.5 7.65a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5ZM19 19h-3v-5.2c0-1.25-.02-2.86-1.74-2.86-1.74 0-2.01 1.36-2.01 2.77V19h-3V9h2.88v1.37h.04a3.16 3.16 0 0 1 2.84-1.56C18.05 8.81 19 10.73 19 13.22Z"/></svg>LinkedIn</a>
+      <a class="m-link-2 footer__social" href="https://x.com/cauabris" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.48l8.6-9.83L0 1.15h7.59l5.24 6.93Zm-1.29 19.49h2.04L6.48 3.24H4.29Z"/></svg>X</a>
     </div>
-    <form data-8b-placeholder="form" class="footer__news" novalidate>
-      <label class="m-text-7" for="news-email">Contact me on LinkedIn<span class="m-dot" aria-hidden="true"></span></label>
-      <div class="footer__field">
-        <input class="m-field" id="news-email" name="email" type="email" autocomplete="email" placeholder="Your email" required>
-        <button class="m-icon" type="submit" aria-label="Subscribe"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 3.5 13.5 8 9 12.5"/></svg></button>
-      </div>
-      <p class="m-text-6 footer__note" role="status" aria-live="polite" data-idle="No spam, one email a month, unsubscribe in one click." data-success="This form is not connected yet. Please contact me on LinkedIn." data-error="Please enter a valid email address.">The newsletter form is not connected yet. Please contact me on LinkedIn.</p>
-    </form>
+    <div class="footer__contact"><a class="m-text-3" href="https://linkedin.com/in/cauabris">Contact me on LinkedIn<span class="m-dot" aria-hidden="true"></span></a></div>
   </div>
-  <div class="footer__legal m-text-6"><p>© 2026 Cauã Bris</p><p>Brazilian product professional</p></div>
+  <div class="footer__legal m-text-6"><p>© 2026 Cauã Bris</p></div>
 </footer>
 
 <script data-8b-part="section-script:navigation">
@@ -1052,30 +1017,9 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 })();
 </script>
 
-<script data-8b-part="section-script:contact">
-(() => {
-  const form = document.querySelector('#contact .contact__form');
-  const status = form.querySelector('.contact__status');
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const ok = form.checkValidity();
-    status.textContent = ok ? status.dataset.success : status.dataset.error;
-    if (ok) form.reset();
-    else form.querySelector(':invalid')?.focus();
-  });
-})();
-</script>
 <script data-8b-part="section-script:footer">
 (() => {
   const footer = document.getElementById('footer');
-  const form = footer.querySelector('.footer__news');
-  const note = form.querySelector('.footer__note');
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    const ok = form.checkValidity();
-    note.textContent = ok ? note.dataset.success : note.dataset.error;
-    if (ok) form.reset();
-  });
   if ('IntersectionObserver' in window) new IntersectionObserver(([entry]) => footer.classList.toggle('is-offscreen', !entry.isIntersecting)).observe(footer);
 })();
 </script>
